@@ -1,0 +1,29 @@
+
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f4f4f4;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+form input, form select, form button {
+  margin: 5px 0;
+  display: block;
+  width: 100%;
+  padding: 8px;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 10px 0;
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px;
+}

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro de Despesas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Despesas Pessoais</h1>
+
+    <form id="expense-form">
+      <input type="number" id="valor" placeholder="Valor" required />
+      <input type="text" id="descricao" placeholder="Descrição" required />
+      <select id="categoria" required>
+        <option value="">Categoria</option>
+        <option value="Alimentação">Alimentação</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Lazer">Lazer</option>
+        <option value="Contas">Contas</option>
+      </select>
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <select id="filtro-categoria">
+      <option value="">Todas as Categorias</option>
+      <option value="Alimentação">Alimentação</option>
+      <option value="Transporte">Transporte</option>
+      <option value="Lazer">Lazer</option>
+      <option value="Contas">Contas</option>
+    </select>
+
+    <ul id="lista-despesas"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
