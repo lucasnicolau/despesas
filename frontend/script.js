@@ -29,14 +29,32 @@ async function carregarDespesas(categoria = '') {
   const despesas = await res.json();
   lista.innerHTML = '';
   despesas.forEach(d => {
-    const li = document.createElement('li');
-    li.innerHTML = `
-      ${d.descricao} - R$ ${d.valor} [${d.categoria}]
-      <button onclick="editarDespesa(${d.id}, '${d.descricao}', ${d.valor}, '${d.categoria}')">Editar</button>
-      <button onclick="excluirDespesa(${d.id})">Excluir</button>
-    `;
-    lista.appendChild(li);
-  });
+  const li = document.createElement('li');
+
+  const texto = document.createElement('span');
+  texto.textContent = `${d.descricao} - R$ ${d.valor} [${d.categoria}]`;
+
+  const actions = document.createElement('div');
+  actions.classList.add('actions');
+
+  const editBtn = document.createElement('button');
+  editBtn.textContent = 'Editar';
+  editBtn.classList.add('edit-btn');
+  editBtn.onclick = () => editarDespesa(d.id, d.descricao, d.valor, d.categoria);
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Excluir';
+  deleteBtn.classList.add('delete-btn');
+  deleteBtn.onclick = () => excluirDespesa(d.id);
+
+  actions.appendChild(editBtn);
+  actions.appendChild(deleteBtn);
+
+  li.appendChild(texto);
+  li.appendChild(actions);
+
+  lista.appendChild(li);
+});
 }
 
 async function excluirDespesa(id) {
@@ -72,6 +90,8 @@ async function editarDespesa(id, descricao, valor, categoriaAtual) {
   });
 
   carregarDespesas(filtro.value);
+  
 }
+
 
 carregarDespesas();
