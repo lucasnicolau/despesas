@@ -1,5 +1,5 @@
 
-const API = 'https://despesas-api.onrender.com';
+const API = 'https://despesas-api.onrender.com/expenses';
 const form = document.getElementById('expense-form');
 const lista = document.getElementById('lista-despesas');
 const filtro = document.getElementById('filtro-categoria');
